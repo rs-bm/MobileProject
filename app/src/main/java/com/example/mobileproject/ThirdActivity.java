@@ -1,7 +1,6 @@
 package com.example.mobileproject;
 
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_third);
         fg = getSupportFragmentManager();
         FragmentTransaction trans = fg.beginTransaction();
         NavFragment nf = new NavFragment();
