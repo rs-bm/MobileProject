@@ -8,28 +8,32 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/accentgrey">
 
         <Button
             android:id="@+id/weaponsB"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/weapons" />
+            android:text="@string/weapons"
+            android:backgroundTint="@color/accentBlue"/>
 
         <Button
             android:id="@+id/statsB"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/stats" />
+            android:text="@string/stats"
+            android:backgroundTint="@color/accentBlue"/>
 
         <Button
             android:id="@+id/warB"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/war" />
+            android:text="@string/war"
+            android:backgroundTint="@color/accentBlue"/>
     </LinearLayout>
 
 </FrameLayout>
