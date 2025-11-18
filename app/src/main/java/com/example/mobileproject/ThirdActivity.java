@@ -18,6 +18,9 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
     TextView statusTV;
@@ -54,5 +57,16 @@ public class ThirdActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
             }
         });
+        setPropaganda();
+    }
+    public void setPropaganda()
+    {
+        TextView propaganda = findViewById(R.id.propaganda);
+        Random random = new Random();
+        ArrayList<String> phrases = new ArrayList<>();
+        phrases.add("We're not a cult. We're a movement with merch");
+        phrases.add("Super Earth: One nation under debt.");
+        String phrase = phrases.get(random.nextInt(phrases.size()));
+        propaganda.setText(phrase);
     }
 }
