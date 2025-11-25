@@ -5,4 +5,19 @@
     <string name="weapons">Weapons</string>
     <string name="stats">Stats</string>
     <string name="war">War</string>
+    <string name="id">ID:</string>
+    <string name="wins">Missions Won:</string>
+    <string name="lost">Missions Lost:</string>
+    <string name="time">Mission Time:</string>
+    <string name="bugs">Bugs Killed:</string>
+    <string name="automations">Automations Killed:</string>
+    <string name="illuminates">Illuminates Killed:</string>
+    <string name="fired">Bullets Fired:</string>
+    <string name="hits">Bullets Hit:</string>
+    <string name="playtime">Time Played:</string>
+    <string name="deaths">Deaths:</string>
+    <string name="revives">Revives:</string>
+    <string name="friendly_kills">Friendly Kills:</string>
+    <string name="success_rate">Mission Success Rate:</string>
+    <string name="accuracy">Accuracy:</string>
 </resources>
