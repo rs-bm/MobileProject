@@ -43,5 +43,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4")
+    implementation("com.amitshekhar.android:android-networking:1.0.2")
 
 }
