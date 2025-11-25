@@ -5,4 +5,7 @@
     <string name="weapons">Weapons</string>
     <string name="stats">Stats</string>
     <string name="war">War</string>
+    <string name="enter_a_weapon_name">enter a weapon name...</string>
+    <string name="search">Search</string>
+    <string name="filters">Filters</string>
 </resources>
