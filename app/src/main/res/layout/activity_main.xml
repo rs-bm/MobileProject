@@ -68,27 +68,35 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip4"
+                android:id="@+id/offChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
                 android:text="@string/offensive" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip3"
+                android:id="@+id/defChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
                 android:text="@string/defensive" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip2"
+                android:id="@+id/supChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
                 android:text="@string/supply" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chip"
+                android:id="@+id/misChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
                 android:text="@string/mission" />
         </com.google.android.material.chip.ChipGroup>
     </LinearLayout>

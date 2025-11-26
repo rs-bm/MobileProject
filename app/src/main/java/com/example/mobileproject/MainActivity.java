@@ -12,12 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleExpandableListAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, List<String>> weaponDetails;
     Button searchB;
     EditText searchET;
+    Chip offChip, defChip, supChip, misChip;
+    ChipGroup chipGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         searchET = findViewById(R.id.searchET);
         searchB = findViewById(R.id.searchB);
         searchB.setOnClickListener(searchListener);
+        chipGroup = findViewById(R.id.chipGroup);
         // Navigation fragment
         fg = getSupportFragmentManager();
         FragmentTransaction trans = fg.beginTransaction();
@@ -64,9 +70,17 @@ public class MainActivity extends AppCompatActivity {
         dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot ds) {
+                outerloop:
                 for (DataSnapshot ds2 : ds.getChildren()) {
                     if (!search.isBlank() && !ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
                         continue;
+                    }
+                    String type = ds2.child("type").getValue().toString();
+                    for (int i = 0; i < chipGroup.getChildCount(); i++) {
+                        Chip chip = (Chip) chipGroup.getChildAt(i);
+                        if (chip.getText().toString().equalsIgnoreCase(type) && chip.isChecked() == false) {
+                            continue outerloop;
+                        }
                     }
                     List<String> detail = new ArrayList<>();
                     for (DataSnapshot ds3 : ds2.getChildren()) {
@@ -88,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             String search = searchET.getText().toString();
-            searchET.setText("");
             getWeapons(search);
         }
     };
