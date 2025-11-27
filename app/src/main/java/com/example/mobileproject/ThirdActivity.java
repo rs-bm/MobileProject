@@ -2,6 +2,8 @@ package com.example.mobileproject;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,17 +15,21 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.ANRequest;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
-    TextView statusTV;
+    ListView statusLV;
+    List<String> status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +40,32 @@ public class ThirdActivity extends AppCompatActivity {
         NavFragment nf = new NavFragment();
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
-        statusTV = findViewById(R.id.status);
-        ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/status").setPriority(Priority.LOW).build();
-        req.getAsJSONObject(new JSONObjectRequestListener() {
+        status = new ArrayList<>();
+        statusLV = findViewById(R.id.statusLV);
+        /*
+        to-do:
+        1. reformat list as table, e.g.,
+            planet | faction | players | percent
+            -------+---------+---------+--------
+              ...  |   ...   |   ...   |   ...
+        2. only load the top few planets, but give a button to show more
+         */
+        ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
+        req.getAsJSONArray(new JSONArrayRequestListener() {
             @Override
-            public void onResponse(JSONObject jsonObject) {
+            public void onResponse(JSONArray jsonArray) {
                 try {
-                    ((TextView) findViewById(R.id.status)).setText(jsonObject.getInt("warId") + "");
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject job = (JSONObject) jsonArray.get(i);
+                        status.add("Planet: " + job.getString("name") +
+                                "\nFaction: " + job.getString("faction") +
+                                "\nPlayers: " + job.getInt("players") +
+                                "\nLiberation percentage: " + job.getDouble("percentage"));
+                    }
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
+                statusLV.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, status));
             }
 
             @Override
