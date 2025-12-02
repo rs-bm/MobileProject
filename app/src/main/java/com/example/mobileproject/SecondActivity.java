@@ -116,9 +116,5 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
             }
         });
-
-
-
     }
-
 }

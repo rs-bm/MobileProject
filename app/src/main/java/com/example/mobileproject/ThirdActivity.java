@@ -64,8 +64,12 @@ public class ThirdActivity extends AppCompatActivity {
         TextView propaganda = findViewById(R.id.propaganda);
         Random random = new Random();
         ArrayList<String> phrases = new ArrayList<>();
-        phrases.add("We're not a cult. We're a movement with merch");
+        phrases.add("We're not a cult. We're a movement with merch.");
         phrases.add("Super Earth: One nation under debt.");
+        phrases.add("Your pals are fighting; Why aren't you?");
+        phrases.add("Return, refit, and redeploy to purge the stain of this failure with the peroxide of victory.");
+        phrases.add("How 'bout a nice cup of LIBER-TEA");
+        phrases.add("He just called his automation friends. Time to call yours");
         String phrase = phrases.get(random.nextInt(phrases.size()));
         propaganda.setText(phrase);
     }
