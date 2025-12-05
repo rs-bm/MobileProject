@@ -88,7 +88,7 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="110dp"
+        android:layout_width="130dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:text="@string/automations"
@@ -97,7 +97,7 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:text="@string/illuminates"
@@ -242,7 +242,7 @@
         android:id="@+id/automationKills"
         android:layout_width="188dp"
         android:layout_height="25dp"
-        android:layout_marginStart="81dp"
+        android:layout_marginStart="60dp"
         android:text="TextView"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toTopOf="@+id/illuminateKills"
@@ -252,7 +252,7 @@
         android:id="@+id/illuminateKills"
         android:layout_width="188dp"
         android:layout_height="25dp"
-        android:layout_marginStart="91dp"
+        android:layout_marginStart="60dp"
         android:text="TextView"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toTopOf="@+id/bulletsFired"
