@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
     ListView statusLV;
     List<String> status;
+    TableLayout table;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +53,65 @@ public class ThirdActivity extends AppCompatActivity {
               ...  |   ...   |   ...   |   ...
         2. only load the top few planets, but give a button to show more
          */
+
+        table = findViewById(R.id.table);
         ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
+        req.getAsJSONArray(new JSONArrayRequestListener() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                try {
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject job = (JSONObject) jsonArray.get(i);
+                        TableRow tr = new TableRow(getApplicationContext());
+                        TextView tv0 = new TextView(getApplicationContext());
+                        tv0.setText(job.getString("name"));
+                        TextView tv1 = new TextView(getApplicationContext());
+                        tv1.setText(job.getString("faction"));
+                        TextView tv2 = new TextView(getApplicationContext());
+                        tv2.setText(String.valueOf(job.getInt("players")));
+                        TextView tv3 = new TextView(getApplicationContext());
+                        tv3.setText(String.valueOf(job.getDouble("percentage")));
+                        tr.addView(tv0);
+                        tr.addView(tv1);
+                        tr.addView(tv2);
+                        tr.addView(tv3);
+                        table.addView(tr);
+                        TableRow.LayoutParams params = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT, 1);
+                        tr.setLayoutParams(params);
+                    }
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                Log.i("ERR", req.getUrl());
+                Log.i("ERR", anError.getErrorDetail());
+                Log.i("ERR", anError.getErrorBody());
+                Log.i("ERR", anError.getErrorCode() + "");
+                Log.i("ERR", anError.getResponse().toString());
+                Toast.makeText(getApplicationContext(), anError.getErrorDetail(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
+            }
+        });
+        setPropaganda();
+    }
+    public void setPropaganda()
+    {
+        TextView propaganda = findViewById(R.id.propaganda);
+        Random random = new Random();
+        ArrayList<String> phrases = new ArrayList<>();
+        phrases.add("We're not a cult. We're a movement with merch");
+        phrases.add("Super Earth: One nation under debt.");
+        String phrase = phrases.get(random.nextInt(phrases.size()));
+        propaganda.setText(phrase);
+    }
+}
+
+/*
+ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
         req.getAsJSONArray(new JSONArrayRequestListener() {
             @Override
             public void onResponse(JSONArray jsonArray) {
@@ -79,16 +140,4 @@ public class ThirdActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
             }
         });
-        setPropaganda();
-    }
-    public void setPropaganda()
-    {
-        TextView propaganda = findViewById(R.id.propaganda);
-        Random random = new Random();
-        ArrayList<String> phrases = new ArrayList<>();
-        phrases.add("We're not a cult. We're a movement with merch");
-        phrases.add("Super Earth: One nation under debt.");
-        String phrase = phrases.get(random.nextInt(phrases.size()));
-        propaganda.setText(phrase);
-    }
-}
+ */

@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     HashMap<String, List<String>> weaponDetails;
     Button searchB;
     EditText searchET;
-    Chip offChip, defChip, supChip, misChip;
     ChipGroup chipGroup;
 
     @Override
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         // Populate stratagems listview
         weaponsLV = findViewById(R.id.weaponsLV);
         weaponDetails = new HashMap<>();
-
         getWeapons("");
     }
 
@@ -70,22 +68,27 @@ public class MainActivity extends AppCompatActivity {
         dRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot ds) {
-                outerloop:
+                perStrat:
                 for (DataSnapshot ds2 : ds.getChildren()) {
-                    if (!search.isBlank() && !ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
+                    // Exclude strats not matching search
+                    if (!ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
                         continue;
                     }
-                    String type = ds2.child("type").getValue().toString();
+                    String stratType = ds2.child("type").getValue().toString();
+                    // Exclude strats not matching filter
                     for (int i = 0; i < chipGroup.getChildCount(); i++) {
                         Chip chip = (Chip) chipGroup.getChildAt(i);
-                        if (chip.getText().toString().equalsIgnoreCase(type) && chip.isChecked() == false) {
-                            continue outerloop;
+                        String chipType = chip.getText().toString();
+                        if (chipType.equalsIgnoreCase(stratType) && chip.isChecked() == false) {
+                            continue perStrat;
                         }
                     }
+                    // Populate list of details for each stratagem
                     List<String> detail = new ArrayList<>();
                     for (DataSnapshot ds3 : ds2.getChildren()) {
                         detail.add(ds3.getKey().toUpperCase() + ": " + ds3.getValue());
                     }
+                    // Add stratagem-details pairing
                     weaponDetails.put(ds2.getKey(), detail);
                 }
                 adapter = new MyAdapter(getApplicationContext(), new ArrayList<String>(weaponDetails.keySet()), weaponDetails);

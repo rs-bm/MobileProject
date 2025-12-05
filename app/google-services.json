@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "232165782792",
+    "project_id": "helldivers-2-df40b",
+    "storage_bucket": "helldivers-2-df40b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232165782792:android:016270fa133ab4f7e6a8bd",
+        "android_client_info": {
+          "package_name": "com.example.mobileproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuHFnd_w5PlqwjpRRrkoFdz7l_gm2ExD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
