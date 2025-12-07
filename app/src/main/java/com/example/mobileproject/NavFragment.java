@@ -46,8 +46,12 @@ public class NavFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (getActivity().getClass() != MainActivity.class) {
+//                weaponsB.setBackgroundColor(getResources().getColor(R.color.yellow));
+//                statsB.setBackgroundColor(getResources().getColor(R.color.accentgrey));
+//                warB.setBackgroundColor(getResources().getColor(R.color.accentgrey));
                 Intent intent;
                 intent = new Intent(getActivity(), MainActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         }

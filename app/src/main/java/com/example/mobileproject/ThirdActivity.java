@@ -2,6 +2,7 @@ package com.example.mobileproject;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TableLayout;
@@ -43,8 +44,8 @@ public class ThirdActivity extends AppCompatActivity {
         NavFragment nf = new NavFragment();
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
-        status = new ArrayList<>();
-        statusLV = findViewById(R.id.statusLV);
+//        status = new ArrayList<>();
+//        statusLV = findViewById(R.id.statusLV);
         /*
         to-do:
         1. reformat list as table, e.g.,
@@ -62,22 +63,41 @@ public class ThirdActivity extends AppCompatActivity {
                 try {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject job = (JSONObject) jsonArray.get(i);
+
                         TableRow tr = new TableRow(getApplicationContext());
+                        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                        tr.setGravity(Gravity.CENTER);
+                        tr.setWeightSum(1);
+
+                        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 0.25f);
+
                         TextView tv0 = new TextView(getApplicationContext());
+                        tv0.setLayoutParams(params);
                         tv0.setText(job.getString("name"));
+                        tv0.setTextColor(getResources().getColor(R.color.yellow));
+
                         TextView tv1 = new TextView(getApplicationContext());
                         tv1.setText(job.getString("faction"));
+                        tv1.setLayoutParams(params);
+                        tv1.setTextColor(getResources().getColor(R.color.yellow));
+
                         TextView tv2 = new TextView(getApplicationContext());
                         tv2.setText(String.valueOf(job.getInt("players")));
+                        tv2.setLayoutParams(params);
+                        tv2.setTextColor(getResources().getColor(R.color.yellow));
+
+
                         TextView tv3 = new TextView(getApplicationContext());
                         tv3.setText(String.valueOf(job.getDouble("percentage")));
+                        tv3.setLayoutParams(params);
+                        tv3.setTextColor(getResources().getColor(R.color.yellow));
+
+
                         tr.addView(tv0);
                         tr.addView(tv1);
                         tr.addView(tv2);
                         tr.addView(tv3);
                         table.addView(tr);
-                        TableRow.LayoutParams params = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT, 1);
-                        tr.setLayoutParams(params);
                     }
                 } catch (JSONException e) {
                     throw new RuntimeException(e);

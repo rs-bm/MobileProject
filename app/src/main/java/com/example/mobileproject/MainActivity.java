@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     // Populate list of details for each stratagem
                     List<String> detail = new ArrayList<>();
                     for (DataSnapshot ds3 : ds2.getChildren()) {
-                        detail.add(ds3.getKey().toUpperCase() + ": " + ds3.getValue());
+                        detail.add(ds3.getKey().toUpperCase() + ":  " + ds3.getValue());
                     }
                     // Add stratagem-details pairing
                     weaponDetails.put(ds2.getKey(), detail);

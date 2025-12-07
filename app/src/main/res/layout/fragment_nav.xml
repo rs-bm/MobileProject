@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,31 +10,43 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/accentgrey">
+        android:background="@color/backgroundBlack">
 
         <Button
             android:id="@+id/weaponsB"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/accentgrey"
             android:text="@string/weapons"
-            android:backgroundTint="@color/accentBlue"/>
+            android:textSize="20sp"
+            android:textColor="@color/backgroundBlack"
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/statsB"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:text="@string/stats"
-            android:backgroundTint="@color/accentBlue"/>
+            android:textSize="20sp"
+            android:backgroundTint="@color/accentgrey"
+            android:textColor="@color/backgroundBlack"
+
+            app:cornerRadius="0dp"/>
 
         <Button
             android:id="@+id/warB"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:text="@string/war"
-            android:backgroundTint="@color/accentBlue"/>
+            android:textSize="20sp"
+            android:backgroundTint="@color/accentgrey"
+            android:textColor="@color/backgroundBlack"
+            app:cornerRadius="0dp"/>
     </LinearLayout>
 
 </FrameLayout>
