@@ -83,24 +83,24 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject jsonObject) {
                try {
-                   id.setText(jsonObject.getInt("id"));
-                   missionsWon.setText(jsonObject.getInt("missionsWon"));
-                   missionsLost.setText(jsonObject.getInt("missionsLost"));
-                   missionTime.setText(jsonObject.getInt("missionTime"));
-                   bugKills.setText(jsonObject.getInt("bugKills"));
-                   automationKills.setText(jsonObject.getInt("automationKills"));
-                   illuminateKills.setText(jsonObject.getInt("illuminateKills"));
-                   bulletsFired.setText(jsonObject.getInt("bulletsFired"));
-                   bulletsHit.setText(jsonObject.getInt("bulletsHit"));
-                   timePlayed.setText(jsonObject.getInt("timePlayed"));
-                   deaths.setText(jsonObject.getInt("deaths"));
-                   revives.setText(jsonObject.getInt("revives"));
-                   friendlyKills.setText("friendlyKills");
-                   missionSuccessRate.setText("missionSucccessRate");
-                   accuracy.setText("accuracy");
+                   id.setText(String.valueOf(jsonObject.getInt("id")));
+                   missionsWon.setText(String.valueOf(jsonObject.getLong("missionsWon")));
+                   missionsLost.setText(String.valueOf(jsonObject.getLong("missionsLost")));
+                   missionTime.setText(String.valueOf(jsonObject.getLong("missionTime")));
+                   bugKills.setText(String.valueOf(jsonObject.getLong("bugKills")));
+                   automationKills.setText(String.valueOf(jsonObject.getLong("automationKills")));
+                   illuminateKills.setText(String.valueOf(jsonObject.getLong("illuminateKills")));
+                   bulletsFired.setText(String.valueOf(jsonObject.getLong("bulletsFired")));
+                   bulletsHit.setText(String.valueOf(jsonObject.getLong("bulletsHit")));
+                   timePlayed.setText(String.valueOf(jsonObject.getLong("timePlayed")));
+                   deaths.setText(String.valueOf(jsonObject.getLong("deaths")));
+                   revives.setText(String.valueOf(jsonObject.getLong("revives")));
+                   friendlyKills.setText(String.valueOf(jsonObject.getLong("friendlyKills")));
+                   missionSuccessRate.setText(String.valueOf(jsonObject.getInt("missionSuccessRate")));
+                   accuracy.setText(String.valueOf(jsonObject.getInt("accuracy")));
                }catch (Exception e)
                {
-
+                   Toast.makeText(getApplicationContext(), "Unable to show Stats", Toast.LENGTH_SHORT).show();
                }
             }
 
