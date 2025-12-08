@@ -40,15 +40,26 @@ public class NavFragment extends Fragment {
         statsB.setOnClickListener(statsListener);
         warB = view.findViewById(R.id.warB);
         warB.setOnClickListener(warListener);
+        if (getActivity().getClass() == MainActivity.class) {
+            weaponsB.setBackgroundColor(getResources().getColor(R.color.white));
+            statsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            warB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+        } else if (getActivity().getClass() == SecondActivity.class) {
+            weaponsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            statsB.setBackgroundColor(getResources().getColor(R.color.white));
+            warB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+        } else {
+            weaponsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            statsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            warB.setBackgroundColor(getResources().getColor(R.color.white));
+
+        }
         return view;
     }
     View.OnClickListener weaponsListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (getActivity().getClass() != MainActivity.class) {
-//                weaponsB.setBackgroundColor(getResources().getColor(R.color.yellow));
-//                statsB.setBackgroundColor(getResources().getColor(R.color.accentgrey));
-//                warB.setBackgroundColor(getResources().getColor(R.color.accentgrey));
                 Intent intent;
                 intent = new Intent(getActivity(), MainActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

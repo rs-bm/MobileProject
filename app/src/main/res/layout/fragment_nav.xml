@@ -17,11 +17,10 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:layout_marginEnd="5dp"
-            android:backgroundTint="@color/accentgrey"
+            android:fontFamily="@font/fs_sinclair_bold"
             android:text="@string/weapons"
-            android:textSize="20sp"
             android:textColor="@color/backgroundBlack"
+            android:textSize="19sp"
             app:cornerRadius="0dp" />
 
         <Button
@@ -30,8 +29,10 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:text="@string/stats"
-            android:textSize="20sp"
-            android:backgroundTint="@color/accentgrey"
+            android:textSize="19sp"
+            android:backgroundTint="@color/lightgrey"
+            android:fontFamily="@font/fs_sinclair_bold"
+
             android:textColor="@color/backgroundBlack"
 
             app:cornerRadius="0dp"/>
@@ -40,11 +41,10 @@
             android:id="@+id/warB"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:text="@string/war"
-            android:textSize="20sp"
-            android:backgroundTint="@color/accentgrey"
+            android:textSize="19sp"
+            android:fontFamily="@font/fs_sinclair_bold"
             android:textColor="@color/backgroundBlack"
             app:cornerRadius="0dp"/>
     </LinearLayout>

@@ -12,15 +12,16 @@
 
     <EditText
         android:id="@+id/searchET"
-        android:layout_width="242dp"
+        android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:fontFamily="@font/fs_sinclair_medium_italic"
         android:hint="@string/search_for_a_weapon"
         android:inputType="text"
         android:textColor="@color/white"
-        android:textColorHint="@color/accentgrey"
+        android:textColorHint="@color/lightgrey"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,15 +49,16 @@
         android:id="@+id/searchB"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:backgroundTint="@color/accentgrey"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/fs_sinclair_medium"
         android:text="@string/search"
-        android:textColor="@color/yellow"
+        android:textColor="@color/backgroundBlack"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/searchET"
-        app:layout_constraintStart_toEndOf="@+id/searchET"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/searchET"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -72,7 +74,7 @@
             android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:chipSpacingHorizontal="5dp">
+            app:chipSpacingHorizontal="0dp">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/offChip"
@@ -82,6 +84,7 @@
                 android:checkable="true"
                 android:checked="true"
                 android:text="@string/offensive"
+                android:fontFamily="@font/fs_sinclair_medium"
                 android:textSize="12sp"
                 android:textColor="@color/chip_text_color_selector"
                 app:chipBackgroundColor="@color/chip_color_selector" />
@@ -94,6 +97,7 @@
                 android:checkable="true"
                 android:checked="true"
                 android:text="@string/defensive"
+                android:fontFamily="@font/fs_sinclair_medium"
                 android:textSize="12sp"
                 android:textColor="@color/chip_text_color_selector"
                 app:chipBackgroundColor="@color/chip_color_selector" />

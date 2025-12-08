@@ -3,8 +3,6 @@ package com.example.mobileproject;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -19,20 +17,16 @@ import com.androidnetworking.common.ANRequest;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
-    ListView statusLV;
-    List<String> status;
     TableLayout table;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +38,11 @@ public class ThirdActivity extends AppCompatActivity {
         NavFragment nf = new NavFragment();
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
-//        status = new ArrayList<>();
-//        statusLV = findViewById(R.id.statusLV);
-        /*
-        to-do:
-        1. reformat list as table, e.g.,
-            planet | faction | players | percent
-            -------+---------+---------+--------
-              ...  |   ...   |   ...   |   ...
-        2. only load the top few planets, but give a button to show more
-         */
 
+        setTable();
+        setPropaganda();
+    }
+    private void setTable() {
         table = findViewById(R.id.table);
         ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
         req.getAsJSONArray(new JSONArrayRequestListener() {
@@ -86,12 +74,10 @@ public class ThirdActivity extends AppCompatActivity {
                         tv2.setLayoutParams(params);
                         tv2.setTextColor(getResources().getColor(R.color.yellow));
 
-
                         TextView tv3 = new TextView(getApplicationContext());
                         tv3.setText(String.valueOf(job.getDouble("percentage")));
                         tv3.setLayoutParams(params);
                         tv3.setTextColor(getResources().getColor(R.color.yellow));
-
 
                         tr.addView(tv0);
                         tr.addView(tv1);
@@ -102,9 +88,7 @@ public class ThirdActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-
             }
-
             @Override
             public void onError(ANError anError) {
                 Log.i("ERR", req.getUrl());
@@ -116,7 +100,6 @@ public class ThirdActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
             }
         });
-        setPropaganda();
     }
     public void setPropaganda()
     {
@@ -133,35 +116,3 @@ public class ThirdActivity extends AppCompatActivity {
         propaganda.setText(phrase);
     }
 }
-
-/*
-ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
-        req.getAsJSONArray(new JSONArrayRequestListener() {
-            @Override
-            public void onResponse(JSONArray jsonArray) {
-                try {
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject job = (JSONObject) jsonArray.get(i);
-                        status.add("Planet: " + job.getString("name") +
-                                "\nFaction: " + job.getString("faction") +
-                                "\nPlayers: " + job.getInt("players") +
-                                "\nLiberation percentage: " + job.getDouble("percentage"));
-                    }
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                statusLV.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, status));
-            }
-
-            @Override
-            public void onError(ANError anError) {
-                Log.i("ERR", req.getUrl());
-                Log.i("ERR", anError.getErrorDetail());
-                Log.i("ERR", anError.getErrorBody());
-                Log.i("ERR", anError.getErrorCode() + "");
-                Log.i("ERR", anError.getResponse().toString());
-                Toast.makeText(getApplicationContext(), anError.getErrorDetail(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
-            }
-        });
- */
