@@ -17,11 +17,10 @@ import com.androidnetworking.common.ANRequest;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.androidnetworking.interfaces.ParsedRequestListener;
+
 
 import org.json.JSONObject;
 
-import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -77,8 +76,8 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
-        int idnum = 1;
-        ANRequest req = AndroidNetworking.get("https://api-hellhub-collective.koyeb.app/api/statistics/" + idnum +"/").setPriority(Priority.LOW).build();
+        int idNum = 2;
+        ANRequest req = AndroidNetworking.get("https://api-hellhub-collective.koyeb.app/api/statistics/" + idNum +"/").setPriority(Priority.LOW).build();
         req.getAsJSONObject(new JSONObjectRequestListener() {
             @Override
             public void onResponse(JSONObject jsonObject) {
