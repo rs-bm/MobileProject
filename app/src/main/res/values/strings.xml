@@ -20,4 +20,15 @@
     <string name="friendly_kills">Friendly Kills:</string>
     <string name="success_rate">Mission Success Rate:</string>
     <string name="accuracy">Accuracy:</string>
+    <string name="offensive">Offensive</string>
+    <string name="defensive">Defensive</string>
+    <string name="supply">Supply</string>
+    <string name="mission">Mission</string>
+    <string name="search_for_a_weapon">Search stratagems…</string>
+    <string name="special">Special</string>
+    <string name="search">Search</string>
+    <string name="planet">Planet</string>
+    <string name="faction">Faction</string>
+    <string name="players">Players</string>
+    <string name="percent">Percent</string>
 </resources>

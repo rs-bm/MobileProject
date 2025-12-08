@@ -6,47 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundBlack"
-    android:backgroundTint="@color/cardview_light_background"
+    android:backgroundTint="@color/backgroundBlack"
     tools:context=".MainActivity">
 
 
     <EditText
         android:id="@+id/searchET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="242dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="@string/enter_a_weapon_name"
+        android:hint="@string/search_for_a_weapon"
         android:inputType="text"
-        android:textColorHint="@color/accentBlue"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
-        android:background="@color/accentgrey"
-        android:backgroundTint="@color/accentgrey"
-        android:text="@string/search"
-        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/accentgrey"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/filterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:backgroundTint="@color/accentBlue"
-        android:text="@string/filters"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/searchET"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navFragment"
@@ -56,15 +33,109 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/weaponsLV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="60dp"
+        android:groupIndicator="@drawable/custom_expandable"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchET"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/searchB"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/accentgrey"
+        android:text="@string/search"
+        android:textColor="@color/yellow"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/searchET"
+        app:layout_constraintStart_toEndOf="@+id/searchET"
+        app:layout_constraintTop_toTopOf="@+id/searchET"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/searchB">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="5dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/offChip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                app:chipCornerRadius="0dp"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/offensive"
+                android:textSize="12sp"
+                android:textColor="@color/chip_text_color_selector"
+                app:chipBackgroundColor="@color/chip_color_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/defChip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                app:chipCornerRadius="0dp"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/defensive"
+                android:textSize="12sp"
+                android:textColor="@color/chip_text_color_selector"
+                app:chipBackgroundColor="@color/chip_color_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/supChip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                app:chipCornerRadius="0dp"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/supply"
+                android:textSize="12sp"
+                android:textColor="@color/chip_text_color_selector"
+                app:chipBackgroundColor="@color/chip_color_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/misChip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                app:chipCornerRadius="0dp"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/mission"
+                android:textSize="12sp"
+                android:textColor="@color/chip_text_color_selector"
+                app:chipBackgroundColor="@color/chip_color_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/speChip"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                app:chipCornerRadius="0dp"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/special"
+                android:textSize="12sp"
+                android:textColor="@color/chip_text_color_selector"
+                app:chipBackgroundColor="@color/chip_color_selector" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

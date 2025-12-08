@@ -1,27 +1,32 @@
 package com.example.mobileproject;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
+import android.widget.SimpleExpandableListAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,48 +34,64 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     FragmentManager fg;
     DatabaseReference dRef;
-    ListView weaponsLV;
+    ExpandableListView weaponsLV;
+    ExpandableListAdapter adapter;
+    List<String> weaponNames;
+    HashMap<String, List<String>> weaponDetails;
+    Button searchB;
+    EditText searchET;
+    ChipGroup chipGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        searchET = findViewById(R.id.searchET);
+        searchB = findViewById(R.id.searchB);
+        searchB.setOnClickListener(searchListener);
+        chipGroup = findViewById(R.id.chipGroup);
+        // Navigation fragment
         fg = getSupportFragmentManager();
         FragmentTransaction trans = fg.beginTransaction();
         NavFragment nf = new NavFragment();
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
-
+        // Populate stratagems listview
         weaponsLV = findViewById(R.id.weaponsLV);
-        getWeapons();
+        weaponDetails = new HashMap<>();
+        getWeapons("");
     }
 
-    /*
-        Populate the listview with stratagems from the database
-     */
-    private void getWeapons() {
+    private void getWeapons(String search) {
+        weaponDetails.clear();
         dRef = FirebaseDatabase.getInstance().getReference("stratagems");
-        List<String> weapons = new ArrayList<>();
         dRef.addValueEventListener(new ValueEventListener() {
-            List<HashMap<String, String>> data = new ArrayList<>();
-
             @Override
             public void onDataChange(@NonNull DataSnapshot ds) {
+                perStrat:
                 for (DataSnapshot ds2 : ds.getChildren()) {
-                    HashMap<String, String> current = new HashMap<>();
-                    current.put("name", ds2.getKey());
-                    current.put("desc", "Type: " + ds2.child("type").getValue() +
-                            "\n - Code: " + ds2.child("code").getValue() +
-                            "\n - Cooldown: " + ds2.child("cooldown").getValue() +
-                            "\n - Damage: " + ds2.child("damage").getValue() +
-                            "\n - Uses: " + ds2.child("uses").getValue() +
-                            "\n - Spawntime: " + ds2.child("spawnTime").getValue());
-                    data.add(current);
+                    // Exclude strats not matching search
+                    if (!ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
+                        continue;
+                    }
+                    String stratType = ds2.child("type").getValue().toString();
+                    // Exclude strats not matching filter
+                    for (int i = 0; i < chipGroup.getChildCount(); i++) {
+                        Chip chip = (Chip) chipGroup.getChildAt(i);
+                        String chipType = chip.getText().toString();
+                        if (chipType.equalsIgnoreCase(stratType) && chip.isChecked() == false) {
+                            continue perStrat;
+                        }
+                    }
+                    // Populate list of details for each stratagem
+                    List<String> detail = new ArrayList<>();
+                    for (DataSnapshot ds3 : ds2.getChildren()) {
+                        detail.add(ds3.getKey().toUpperCase() + ":  " + ds3.getValue());
+                    }
+                    // Add stratagem-details pairing
+                    weaponDetails.put(ds2.getKey(), detail);
                 }
-                SimpleAdapter adapter = new SimpleAdapter(getApplicationContext(), data,
-                        android.R.layout.simple_list_item_2,
-                        new String[]{"name", "desc"},
-                        new int[]{android.R.id.text1, android.R.id.text2});
+                adapter = new MyAdapter(getApplicationContext(), new ArrayList<String>(weaponDetails.keySet()), weaponDetails);
                 weaponsLV.setAdapter(adapter);
             }
 
@@ -80,4 +101,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    View.OnClickListener searchListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String search = searchET.getText().toString();
+            getWeapons(search);
+        }
+    };
 }

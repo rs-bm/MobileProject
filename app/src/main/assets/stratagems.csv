@@ -1,0 +1,155 @@
+Name,Code,Type,Uses,Spawn Time,Cooldown,Damage
+Supply Pack,↓←↓↑↑↓,Supply,∞,5,480,
+Ballistic Shield Backpack,↓←↓↓↑←,Supply,∞,5,300,
+Shield Generator Pack,↓↑←→←→,Supply,∞,5,480,
+Jump Pack,↓↑↑↓↑,Supply,∞,5,480,
+"""Guard Dog""",↓↑←↑→↓,Supply,∞,5,480,
+"""Guard Dog"" Rover",↓↑←↑→→,Supply,∞,5,480,
+"""Guard Dog"" Dog Breath",↓↑←↑→↑,Supply,∞,5,480,
+Resupply,↓↓↑→,Special,∞,7.5,180,
+Medical Supplies,←↓↑←,Supply,∞,5,300,
+Eagle Strafing Run,↑→→,Offensive,4,0,15,"6 Strikes
+Projectile 350/200 (ap 5/5/4/0) (k 30/35/3)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/35/5) (r 2.5/5/6.5)"
+Eagle 500kg Bomb,↑→↓↓↓,Offensive,1,0,15,"1 Strikes
+Projectile 2000/2000 (ap 7/7/7/7) (k 50/20/15)
+--Explosion 100/100 (ap 3/0/0/0) (k 40/10/40) (r 1/3/6)
+--Explosion 1500/1500 (ap 6/0/0/0) (k 50/100/40) (r 10/25/35)"
+Eagle 110mm Rocket Pods,↑→↑←,Offensive,2,0,15,"6 Strikes
+Projectile 600/600 (ap 7/7/7/0) (k 40/35/15)
+--Explosion 200/200 (ap 3/0/0/0) (k 30/30/40) (r 1.6/5/8)"
+Eagle Airstrike,↑→↓→,Offensive,2,0,15,"6 Strikes
+Projectile 1500/1500 (ap 7/7/7/7) (k 40/20/15)
+--Explosion 800/800 (ap 5/0/0/0) (k 40/50/40) (r 5/10/14)"
+Eagle Napalm Airstrike,↑→↓↑,Offensive,2,0,15,"4 Strikes
+Projectile 1500/1500 (ap 7/7/7/7) (k 40/20/15)
+--Explosion 250/250 (ap 3/0/0/0) (k 30/50/40) (r 1.6/8/10) [Fire]
+----Fire DPS 50/50 (ap 4/4/4/0) (k 0/0/0) [Fire]
+----Status BurningHeavy DPS 400/80 (ap 2/2/2/0) (k 0/0/0) [Fire]"
+Eagle Smoke Strike,↑→↑↓,Offensive,2,0,15,"8 Strikes
+Projectile 1500/1500 (ap 7/7/7/7) (k 40/20/15)"
+Eagle Cluster Bomb,↑→↓↓→,Offensive,4,0,15,"8 Strikes
+Projectile 1500/1500 (ap 7/7/7/7) (k 40/20/15)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/50/40) (r 1/2/10)
+----x8 Shrapnel
+------Projectile 20/2 (ap 0/0/0/0) (k 10/40/10)
+----------Explosion 350/350 (ap 3/0/0/0) (k 30/50/40) (r 3/6/8)"
+Eagle Rearm,↑↑←↑→,Mission,∞,0,150,
+Eagle Air-to-Air Missiles,↑→↑↑,Offensive,2,0,15,"6 Strikes
+Projectile 350/200 (ap 5/5/4/0) (k 30/35/3)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/35/5) (r 2.5/5/6.5)"
+FX-12 Shield Generator Relay,↓↓←→←→,Defensive,∞,0,90,
+E/MG-101 HMG Emplacement,↓↑←→→←,Defensive,∞,3,180,Projectile 200/40 (ap 4/4/4/0) (k 20/25/15)
+MD-6 Anti-Personnel Minefield,↓←↑→,Defensive,∞,3,180,Explosion 350/350 (ap 3/0/0/0) (k 30/30/30) (r 1.2/5/7)
+MD-I4 Incendiary Mines,↓←←↓,Defensive,∞,3,180,"Explosion 210/210 (ap 3/0/0/0) (k 30/30/30) (r 1.2/4/7)
+--Fire DPS 50/50 (ap 4/4/4/0) (k 0/0/0) [Fire]"
+MD-17 Anti-tank Mines,↓←↑↑,Defensive,∞,3,180,Explosion 2000/2000 (ap 5/0/0/0) (k 30/30/40) (r 3/7/14)
+MD-8 Gas Mines,↓←←→,Defensive,∞,3,180,"Explosion 3/3 (ap 6/0/0/0) (k 10/10/10) (r 2/6/6) [Gas]
+--Gas DPS 25/25 (ap 6/6/6/0) (k 0/0/0) [Gas]
+--Status Gas_Confusion"
+A/ARC-3 Tesla Tower,↓↑→↑←→,Defensive,∞,3,120,"Arc Projectile 600/600 (ap 4/4/4/0) (k 20/35/10) [Electricity]
+--StunSmall"
+SSSD Delivery,↓↓↓↓↓↑↑,Mission,∞,5,10,
+SSSD Delivery,↓↓↓↑↑,Mission,∞,5,10,
+Drilling Charge,↓↑↑↑,Mission,∞,5,10,
+Extraction Beacon,←↑↑↓←↓,Mission,∞,120,300,
+Hellbomb,↓↑←↓↑→↓↑,Mission,∞,5,30,
+HIVE BREAKER DRILL,←↑↓→↓↓,Mission,∞,0,120,
+Spire Sterilizer,↓↓↓←→←→,Mission,∞,5,30,
+Super Earth Flag,↓↑↓↑,Mission,∞,5,30,
+Thumper,↓↑←→↑↓,Mission,∞,5,30,
+Prospecting Drill,↓↓←→↓↓,Mission,∞,5,30,
+Seismic Probe,↑↑←→↓↓,Mission,∞,5,30,
+Hive Scanner,↓↑↓→←↓↑↓,Mission,∞,5,90,
+Scrambler,↓↑↑→↓↓←→←,Mission,∞,5,180,
+Extraction,↑→←↑→←↑,Mission,∞,7,180,
+Extraction,↑→←↑→←↑,Mission,∞,0,180,
+Reinforce,↑↓→←↑,Mission,∞,0,6,
+Orbital Illumination Flare,→→←←,Defensive,∞,0,30,"1 Bombs, 1 Salvos
+Projectile 300/300 (ap 7/7/6/6) (k 50/60/15)
+--x1 Shrapnel
+------Projectile 300/300 (ap 7/7/6/6) (k 50/60/15)"
+SOS Beacon,↑↓→↑,Mission,1,2,180,
+Upload Data,←→↑↑↑,Special,∞,0,1,
+Carpet Bomb,↑→↑→↑→,Offensive,1,0,900,
+Jammed Piñata,↑↓↑↑,Supply,1,5,0,
+SEAF Artillery,→↑↑↓,Mission,∞,0,15,
+Orbital Precision Strike,→→↑,Offensive,∞,2,90,"1 Bombs, 1 Salvos
+Projectile 3500/3500 (ap 8/7/6/6) (k 50/50/20)
+--Explosion 1000/1000 (ap 6/0/0/0) (k 50/70/60) (r 4/12/18)"
+Orbital Airburst Strike,→→→,Offensive,∞,2,100,"1 Bombs, 4 Salvos
+Projectile 300/300 (ap 7/7/6/6) (k 50/60/15)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/50/40) (r 0.2/0.5/4)
+----x12 Shrapnel
+------Projectile 300/150 (ap 3/3/3/0) (k 10/10/20)
+----------Explosion 350/350 (ap 3/0/0/0) (k 30/50/40) (r 3/6/8)"
+Orbital EMS Strike,→→←↓,Offensive,∞,2,75,"1 Bombs, 1 Salvos
+Projectile 250/250 (ap 3/2/1/0) (k 30/15/10)
+--Explosion 0/0 (ap 4/0/0/0) (k 30/10/40) (r 1/13/20)"
+Orbital 120mm HE Barrage,→→↓←→↓,Offensive,∞,5,180,"3 Bombs, 5 Salvos
+Projectile 2500/2500 (ap 7/7/6/6) (k 50/20/20)
+--Explosion 750/750 (ap 5/0/0/0) (k 50/70/40) (r 3.3/10/11)"
+Orbital Gas Strike,→→↓→,Offensive,∞,2,75,"1 Bombs, 1 Salvos
+Projectile 300/300 (ap 7/7/6/6) (k 50/60/15)
+--Explosion 0/0 (ap 6/0/0/0) (k 50/10/40) (r 1/15/20) [Gas]
+----Gas DPS 25/25 (ap 6/6/6/0) (k 0/0/0) [Gas]
+----Status Gas_Confusion"
+Orbital 380mm HE Barrage,→↓↑↑←↓↓,Offensive,∞,6,240,"3 Bombs, 5 Salvos
+Projectile 3500/3500 (ap 8/7/6/6) (k 50/50/20)
+--Explosion 1000/1000 (ap 6/0/0/0) (k 50/70/60) (r 4/12/18)"
+Orbital Laser,→↓↑→↓,Offensive,3,2,300,"DPS 60/60 (ap 6/6/6/0) (k 50/30/30)
+--Fire DPS 50/50 (ap 4/4/4/0) (k 0/0/0) [Fire]"
+Orbital Railcannon Strike,→↑↓↓→,Offensive,∞,1,210,"Projectile 7500/7500 (ap 7/7/7/7) (k 50/60/35)
+--Explosion 1000/1000 (ap 6/0/0/0) (k 50/30/50) (r 2.5/2.5/10)"
+Orbital Walking Barrage,→↓→↓→↓,Offensive,∞,3,240,"3 Bombs, 5 Salvos
+Projectile 3500/3500 (ap 8/7/6/6) (k 50/50/20)
+--Explosion 1000/1000 (ap 6/0/0/0) (k 50/70/60) (r 4/12/18)"
+Orbital Gatling Barrage,→↓←↑↑,Offensive,∞,2,70,"60 Bombs, 4 Salvos
+Projectile 350/200 (ap 5/5/4/0) (k 30/35/3)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/35/5) (r 1.5/4.5/6.5)"
+Orbital Smoke Strike,→→↓↑,Offensive,∞,2,100,"1 Bombs, 6 Salvos"
+Orbital Napalm Barrage,→→↓←→↑,Offensive,∞,5,240,"5 Bombs, 5 Salvos
+Projectile 500/500 (ap 5/5/5/0) (k 30/20/15)
+--Explosion 350/350 (ap 3/0/0/0) (k 30/50/40) (r 3.3/10/11) [Fire]
+----Fire DPS 50/50 (ap 4/4/4/0) (k 0/0/0) [Fire]
+----Status BurningHeavy DPS 400/80 (ap 2/2/2/0) (k 0/0/0) [Fire]"
+Resupply,↓↓↑→,Supply,∞,5,30,
+Medical Supplies,↓↓↑←,Supply,1,5,30,
+EXO-45 Patriot Exosuit,←↓→↑←↓↓,Supply,1,0,600,
+Jump Pack,↓↑↑↓↑,Supply,1,5,90,
+A/MLS-4X Rocket Sentry,↓→↑→←,Defensive,1,5,45,"Projectile 525/525 (ap 5/5/5/0) (k 30/35/10)
+--Explosion 150/150 (ap 3/0/0/0) (k 30/30/10) (r 1/4/6)"
+Machine Gun,↓←↓↑→,Supply,1,5,600,
+Autocannon,↓←↓↑↑→,Supply,∞,3,480,
+Grenade Launcher,↓←↑←↓,Supply,∞,3,480,
+Machine Gun,↓←↓↑→,Supply,∞,3,480,
+Stalwart,↓←↓↑↑←,Supply,∞,3,480,
+Railgun,↓→↓↑←→,Supply,∞,3,480,
+Recoilless Rifle,↓←→→←,Supply,∞,3,480,
+Laser Cannon,↓←↓↑←,Supply,∞,3,480,
+Quasar Cannon,↓↓↑←→,Supply,∞,3,480,
+Anti-Materiel Rifle,↓←→↑↓,Supply,∞,3,480,
+Expendable Anti-Tank,↓↓←↑→,Supply,∞,2,70,
+Commando,↓←↑↓→,Supply,∞,3,120,
+Flamethrower,↓←↑↓↑,Supply,∞,3,480,
+Heavy Machine Gun,↓←↑↓↓,Supply,∞,3,480,
+Airburst Rocket Launcher,↓↑↑←→,Supply,∞,3,480,
+Missile Silo,↓↑→↓↓,Supply,∞,3,180,
+Spear,↓↓↑↓↓,Supply,∞,3,480,
+Arc Thrower,↓→↓↑←←,Supply,∞,3,480,
+Sterilizer,↓←↑↓←,Supply,∞,3,480,
+A/G-16 Gatling Sentry,↓↑→←,Defensive,∞,3,150,Projectile 90/23 (ap 3/3/3/1) (k 10/20/12)
+A/MG-43 Machine Gun Sentry,↓↑→→↑,Defensive,∞,3,90,Projectile 90/23 (ap 3/3/3/1) (k 10/20/12)
+A/M-12 Mortar Sentry,↓↑→→↓,Defensive,∞,3,180,"Projectile 20/2 (ap 0/0/0/0) (k 10/40/10)
+--Explosion 400/400 (ap 3/0/0/0) (k 30/35/40) (r 3/9/13)"
+A/M-23 EMS Mortar Sentry,↓↑→↓→,Defensive,∞,3,180,"Projectile 20/2 (ap 0/0/0/0) (k 10/40/10)
+--Explosion 150/150 (ap 3/0/0/0) (k 30/30/20) (r 1/2/3)
+--Explosion 0/0 (ap 4/0/0/0) (k 30/10/40) (r 1/10/12)"
+A/MLS-4X Rocket Sentry,↓↑→→←,Defensive,∞,0,150,"Projectile 525/525 (ap 5/5/5/0) (k 30/35/10)
+--Explosion 150/150 (ap 3/0/0/0) (k 30/30/10) (r 1/4/6)"
+A/AC-8 Autocannon Sentry,↓↑→↑←↑,Defensive,∞,3,150,"Projectile 450/450 (ap 5/5/5/0) (k 30/40/10)
+--Explosion 150/150 (ap 3/0/0/0) (k 30/30/30) (r 2/6/8)"
+Reinforce,↑↓→←↑,Mission,∞,0,6,
+Extraction Beacon,←↑↑↓←↓,Mission,∞,120,300,
+EXO-45 Patriot Exosuit,←↓→↑←↓↓,Supply,2,0,600,
+EXO-49 Emancipator Exosuit,←↓→↑←↓↑,Supply,2,0,600,
