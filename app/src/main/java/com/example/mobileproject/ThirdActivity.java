@@ -30,6 +30,7 @@ import java.util.Random;
 public class ThirdActivity extends AppCompatActivity {
     FragmentManager fg;
     TableLayout table;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +41,13 @@ public class ThirdActivity extends AppCompatActivity {
         NavFragment nf = new NavFragment();
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
+        // Recolor status bar
+        getWindow().setStatusBarColor(getResources().getColor(R.color.backgroundBlack));
 
         setTable();
         setPropaganda();
     }
+
     private void setTable() {
         table = findViewById(R.id.table);
         ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
@@ -104,6 +108,7 @@ public class ThirdActivity extends AppCompatActivity {
                     throw new RuntimeException(e);
                 }
             }
+
             @Override
             public void onError(ANError anError) {
                 Log.i("ERR", req.getUrl());
@@ -116,8 +121,8 @@ public class ThirdActivity extends AppCompatActivity {
             }
         });
     }
-    public void setPropaganda()
-    {
+
+    public void setPropaganda() {
         TextView propaganda = findViewById(R.id.propaganda);
         Random random = new Random();
         ArrayList<String> phrases = new ArrayList<>();

@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         weaponsLV = findViewById(R.id.weaponsLV);
         weaponDetails = new HashMap<>();
         getWeapons("");
+        // Recolor status bar
+        getWindow().setStatusBarColor(getResources().getColor(R.color.backgroundBlack));
     }
 
     private void getWeapons(String search) {
