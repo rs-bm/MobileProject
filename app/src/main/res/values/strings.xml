@@ -24,7 +24,7 @@
     <string name="defensive">Defensive</string>
     <string name="supply">Supply</string>
     <string name="mission">Mission</string>
-    <string name="search_for_a_weapon">Search stratagems…</string>
+    <string name="search_for_a_weapon">  Search stratagems…</string>
     <string name="special">Special</string>
     <string name="search">Search</string>
     <string name="planet">Planet</string>
@@ -32,4 +32,6 @@
     <string name="players">Players</string>
     <string name="percent">Percent</string>
     <string name="liberation">Liberation</string>
+    <string name="galactic_war_status">Galactic War Status</string>
+    <string name="placeholder">placeholder</string>
 </resources>

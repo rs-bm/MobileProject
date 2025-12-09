@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     if (!ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
                         continue;
                     }
-                    String stratType = ds2.child("type").getValue().toString();
                     // Exclude strats not matching filter
+                    String stratType = ds2.child("type").getValue().toString();
                     for (int i = 0; i < chipGroup.getChildCount(); i++) {
                         Chip chip = (Chip) chipGroup.getChildAt(i);
                         String chipType = chip.getText().toString();
@@ -94,10 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 adapter = new MyAdapter(getApplicationContext(), new ArrayList<String>(weaponDetails.keySet()), weaponDetails);
                 weaponsLV.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

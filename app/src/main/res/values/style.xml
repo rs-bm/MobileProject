@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="ChipTextAppearance__Roboto" parent="TextAppearance.MaterialComponents.Chip">
         <item name="android:fontFamily">@font/fs_sinclair_medium</item>
-        <item name="fontFamily">@font/fs_sinclair_medium</item>
     </style>
 
 </resources>
