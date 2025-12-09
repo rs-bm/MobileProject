@@ -4,10 +4,13 @@
     <color name="white">#FFFFFA</color>
     <color name="lightgrey">#CCCCCA</color>
     <color name="backgroundBlack">#232324</color>
+    <color name="backgroundGrey">#323232</color>
     <color name="accentBlue">#526787</color>
     <color name="accentgrey">#a9b0ba</color>
     <color name="darkRed">#6b1b1b</color>
-    <color name="yellow">#FFE607</color>
-
+    <color name="red">#C34234</color>
+    <color name="green">#539B3B</color>
+    <color name="blue">#348CC3</color>
+    <color name="yellow">#C3A234</color>
 
 </resources>

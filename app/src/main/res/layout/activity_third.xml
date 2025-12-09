@@ -17,147 +17,110 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="238dp"
-        android:layout_height="49dp"
-        android:background="@color/accentgrey"
-        android:fontFamily="@font/geostar"
-        android:gravity="center"
-        android:text="State of the"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="20sp"
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/fs_sinclair_bold"
+        android:text="Galactic War Status"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="7dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="35dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/darkRed"
-        android:fontFamily="@font/alfa_slab_one"
-        android:gravity="center"
-        android:text="W"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="35dp"
-        android:layout_height="36dp"
-        android:background="@color/darkRed"
-        android:fontFamily="@font/alfa_slab_one"
-        android:gravity="center"
-        android:text="R"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="35dp"
-        android:layout_height="36dp"
-        android:background="@color/darkRed"
-        android:fontFamily="@font/alfa_slab_one"
-        android:gravity="center"
-        android:text="A"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <TextView
         android:id="@+id/propaganda"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/fs_sinclair_medium_italic"
+        android:text="text"
         android:textAlignment="center"
-        android:textColor="@color/yellow"
-        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/header" />
 
-<!--    <ListView-->
-<!--        android:id="@+id/statusLV"-->
-<!--        android:layout_width="351dp"-->
-<!--        android:layout_height="233dp"-->
-<!--        android:layout_marginStart="1dp"-->
-<!--        android:layout_marginTop="384dp"-->
-<!--        android:layout_marginEnd="1dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/propaganda" />-->
-
-    <TableLayout
-        android:id="@+id/table"
-        android:layout_width="409dp"
-        android:layout_height="382dp"
+    <TableRow
+        android:id="@+id/headerRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/propaganda">
 
-        <TableRow
+        <TextView
+            android:id="@+id/planetTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:fontFamily="@font/fs_sinclair_bold"
+            android:gravity="center"
+            android:text="@string/planet"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/percentTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:fontFamily="@font/fs_sinclair_bold"
+            android:gravity="center"
+            android:text="@string/liberation"
+            android:textColor="@color/white"
+
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/playersTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:fontFamily="@font/fs_sinclair_bold"
+            android:gravity="center"
+            android:text="@string/players"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/factionTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:fontFamily="@font/fs_sinclair_bold"
+            android:gravity="center"
+            android:text="@string/faction"
+            android:textColor="@color/white"
+
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerRow">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/planet"
-                android:textStyle="bold"
-                android:textColor="@color/yellow"/>
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/faction"
-                android:textStyle="bold"
-                android:textColor="@color/yellow"/>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/players"
-                android:textStyle="bold"
-                android:textColor="@color/yellow"/>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/percent"
-                android:textStyle="bold"
-                android:textColor="@color/yellow"/>
-        </TableRow>
-
-    </TableLayout>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,17 +42,25 @@ public class NavFragment extends Fragment {
         warB.setOnClickListener(warListener);
         if (getActivity().getClass() == MainActivity.class) {
             weaponsB.setBackgroundColor(getResources().getColor(R.color.white));
-            statsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
-            warB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            weaponsB.setTextColor(getResources().getColor(R.color.backgroundBlack));
+            statsB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            statsB.setTextColor(getResources().getColor(R.color.white));
+            warB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            warB.setTextColor(getResources().getColor(R.color.white));
         } else if (getActivity().getClass() == SecondActivity.class) {
-            weaponsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            weaponsB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            weaponsB.setTextColor(getResources().getColor(R.color.white));
             statsB.setBackgroundColor(getResources().getColor(R.color.white));
-            warB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            statsB.setTextColor(getResources().getColor(R.color.backgroundBlack));
+            warB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            warB.setTextColor(getResources().getColor(R.color.white));
         } else {
-            weaponsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
-            statsB.setBackgroundColor(getResources().getColor(R.color.lightgrey));
+            weaponsB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            weaponsB.setTextColor(getResources().getColor(R.color.white));
+            statsB.setBackgroundColor(getResources().getColor(R.color.backgroundGrey));
+            statsB.setTextColor(getResources().getColor(R.color.white));
             warB.setBackgroundColor(getResources().getColor(R.color.white));
-
+            warB.setTextColor(getResources().getColor(R.color.backgroundBlack));
         }
         return view;
     }

@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/fs_sinclair_medium_italic"
         android:hint="@string/search_for_a_weapon"
@@ -86,8 +86,8 @@
                 android:text="@string/offensive"
                 android:fontFamily="@font/fs_sinclair_medium"
                 android:textSize="12sp"
-                android:textColor="@color/chip_text_color_selector"
-                app:chipBackgroundColor="@color/chip_color_selector" />
+                android:textColor="@color/chip_text_color_selector_red"
+                app:chipBackgroundColor="@color/chip_color_selector_red" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/defChip"
@@ -99,8 +99,8 @@
                 android:text="@string/defensive"
                 android:fontFamily="@font/fs_sinclair_medium"
                 android:textSize="12sp"
-                android:textColor="@color/chip_text_color_selector"
-                app:chipBackgroundColor="@color/chip_color_selector" />
+                android:textColor="@color/chip_text_color_selector_blue"
+                app:chipBackgroundColor="@color/chip_color_selector_blue" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/supChip"
@@ -111,8 +111,8 @@
                 android:checked="true"
                 android:text="@string/supply"
                 android:textSize="12sp"
-                android:textColor="@color/chip_text_color_selector"
-                app:chipBackgroundColor="@color/chip_color_selector" />
+                android:textColor="@color/chip_text_color_selector_green"
+                app:chipBackgroundColor="@color/chip_color_selector_green" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/misChip"
@@ -123,8 +123,8 @@
                 android:checked="true"
                 android:text="@string/mission"
                 android:textSize="12sp"
-                android:textColor="@color/chip_text_color_selector"
-                app:chipBackgroundColor="@color/chip_color_selector" />
+                android:textColor="@color/chip_text_color_selector_yellow"
+                app:chipBackgroundColor="@color/chip_color_selector_yellow" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/speChip"
@@ -135,8 +135,8 @@
                 android:checked="true"
                 android:text="@string/special"
                 android:textSize="12sp"
-                android:textColor="@color/chip_text_color_selector"
-                app:chipBackgroundColor="@color/chip_color_selector" />
+                android:textColor="@color/chip_text_color_selector_grey"
+                app:chipBackgroundColor="@color/chip_color_selector_grey" />
 
         </com.google.android.material.chip.ChipGroup>
     </LinearLayout>
