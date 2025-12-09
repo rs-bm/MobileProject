@@ -10,12 +10,25 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/fs_sinclair_bold"
+        android:text="Weapons and Stratagems"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/searchET"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:fontFamily="@font/fs_sinclair_medium"
         android:hint="@string/search_for_a_weapon"
@@ -25,7 +38,7 @@
         android:textColorHint="@color/lightgrey"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/header" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navFragment"
@@ -79,7 +92,7 @@
             android:id="@+id/chipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:chipSpacingHorizontal="0dp">
 
             <com.google.android.material.chip.Chip
