@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.backgroundBlack));
     }
 
+    /*
+    Retrieves weapons data from firebase into listview with parameter to search by name
+     */
     private void getWeapons(String search) {
         weaponDetails.clear();
         dRef = FirebaseDatabase.getInstance().getReference("stratagems");
@@ -72,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot ds) {
                 perStrat:
                 for (DataSnapshot ds2 : ds.getChildren()) {
-                    // Exclude strats not matching search
+                    // Exclude strat if not matching search
                     if (!ds2.getKey().toLowerCase().contains(search.toLowerCase())) {
                         continue;
                     }
-                    // Exclude strats not matching filter
+                    // Exclude strat if not matching filter
                     String stratType = ds2.child("type").getValue().toString();
                     for (int i = 0; i < chipGroup.getChildCount(); i++) {
                         Chip chip = (Chip) chipGroup.getChildAt(i);

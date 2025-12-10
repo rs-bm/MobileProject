@@ -48,7 +48,6 @@ public class SecondActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_second);
         fg = getSupportFragmentManager();
-        //AndroidNetworking.initialize(getApplicationContext());
         FragmentTransaction trans = fg.beginTransaction();
         NavFragment nf = new NavFragment();
 
@@ -88,46 +87,5 @@ public class SecondActivity extends AppCompatActivity {
         revives.setText(prefs.getString("revives","0"));
         missionSuccessRate.setText(prefs.getString("missionSuccessRate", "0"));
         accuracy.setText(prefs.getString("accuracy", "0"));
-
-        /*int idNum = 2;
-        ANRequest req = AndroidNetworking.get("https://api-hellhub-collective.koyeb.app/api/statistics/" + idNum +"/").setPriority(Priority.LOW).build();
-        req.getAsJSONObject(new JSONObjectRequestListener() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-               try {
-                   id.setText(String.valueOf(jsonObject.getInt("id")));
-                   missionsWon.setText(String.valueOf(jsonObject.getLong("missionsWon")));
-                   missionsLost.setText(String.valueOf(jsonObject.getLong("missionsLost")));
-                   missionTime.setText(String.valueOf(jsonObject.getLong("missionTime")));
-                   bugKills.setText(String.valueOf(jsonObject.getLong("bugKills")));
-                   automationKills.setText(String.valueOf(jsonObject.getLong("automationKills")));
-                   illuminateKills.setText(String.valueOf(jsonObject.getLong("illuminateKills")));
-                   bulletsFired.setText(String.valueOf(jsonObject.getLong("bulletsFired")));
-                   bulletsHit.setText(String.valueOf(jsonObject.getLong("bulletsHit")));
-                   timePlayed.setText(String.valueOf(jsonObject.getLong("timePlayed")));
-                   deaths.setText(String.valueOf(jsonObject.getLong("deaths")));
-                   revives.setText(String.valueOf(jsonObject.getLong("revives")));
-                   friendlyKills.setText(String.valueOf(jsonObject.getLong("friendlyKills")));
-                   missionSuccessRate.setText(String.valueOf(jsonObject.getInt("missionSuccessRate")));
-                   accuracy.setText(String.valueOf(jsonObject.getInt("accuracy")));
-               }catch (Exception e)
-               {
-                   Toast.makeText(getApplicationContext(), "Unable to show Stats", Toast.LENGTH_SHORT).show();
-               }
-            }
-
-            @Override
-            public void onError(ANError anError)
-            {
-                Log.i("ERR", req.getUrl());
-                Log.i("ERR", anError.getErrorDetail());
-                Log.i("ERR", anError.getErrorBody());
-                Log.i("ERR", anError.getErrorCode() + "");
-                Log.i("ERR", anError.getResponse().toString());
-                Toast.makeText(getApplicationContext(), anError.getErrorDetail(), Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
-            }
-        });
-        */
     }
 }
