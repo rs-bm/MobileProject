@@ -1,9 +1,9 @@
 package com.example.mobileproject;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,34 +12,26 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.ANRequest;
-import com.androidnetworking.common.Priority;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
+/**
+ * Activity for viewing Stats.
+ */
 public class SecondActivity extends AppCompatActivity {
 
-    private TextView id;
-    private TextView missionsWon;
-    private TextView missionsLost;
-    private TextView missionTime;
-    private TextView bugKills;
-    private TextView automationKills;
-    private TextView illuminateKills;
-    private TextView bulletsFired;
-    private TextView bulletsHit;
-    private TextView timePlayed;
-    private TextView deaths;
-    private TextView revives;
-    private TextView friendlyKills;
-    private TextView missionSuccessRate;
-    private TextView accuracy;
+
+    TextView missionsWon;
+    TextView missionsPlayed;
+    TextView bugKills;
+    TextView automationKills;
+    TextView illuminateKills;
+    TextView bulletsFired;
+    TextView bulletsHit;
+
+    TextView deaths;
+    TextView revives;
+    TextView friendlyKills;
+    TextView missionSuccessRate;
+    TextView accuracy;
     FragmentManager fg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +39,22 @@ public class SecondActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_second);
         fg = getSupportFragmentManager();
-        AndroidNetworking.initialize(getApplicationContext());
+        //AndroidNetworking.initialize(getApplicationContext());
         FragmentTransaction trans = fg.beginTransaction();
         NavFragment nf = new NavFragment();
-        id = findViewById(R.id.ID);
+
         missionsWon = findViewById(R.id.wins);
-        missionsLost = findViewById(R.id.losses);
-        missionTime = findViewById(R.id.missionTime);
+        missionsPlayed = findViewById(R.id.plays);
         bugKills = findViewById(R.id.bugKills);
         automationKills = findViewById(R.id.automationKills);
         illuminateKills = findViewById(R.id.illuminateKills);
+        friendlyKills = findViewById(R.id.friendlyKills);
         bulletsFired = findViewById(R.id.bulletsFired);
         bulletsHit = findViewById(R.id.bulletsHit);
-        timePlayed = findViewById(R.id.timePlayed);
         deaths = findViewById(R.id.deaths);
         revives = findViewById(R.id.revives);
-        friendlyKills = findViewById(R.id.friendlyKills);
-        missionSuccessRate = findViewById(R.id.successRate);
+        missionSuccessRate = findViewById(R.id.missionSuccessRate);
         accuracy = findViewById(R.id.accuracy);
-
-
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -75,9 +63,22 @@ public class SecondActivity extends AppCompatActivity {
             return insets;
         });
 
+        SharedPreferences prefs = getSharedPreferences("stats", MODE_PRIVATE);
 
+        missionsWon.setText(prefs.getString("wins", ""));
+        missionsPlayed.setText(prefs.getString("plays", ""));
+        bugKills.setText(prefs.getString("bugs", ""));
+        automationKills.setText(prefs.getString("automations", ""));
+        illuminateKills.setText(prefs.getString("illuminates", ""));
+        friendlyKills.setText(prefs.getString("friendly", ""));
+        bulletsFired.setText(prefs.getString("fired", ""));
+        bulletsHit.setText(prefs.getString("hits", ""));
+        deaths.setText(prefs.getString("deaths", ""));
+        revives.setText(prefs.getString("revives",""));
+        missionSuccessRate.setText(prefs.getString("missionSuccessRate", ""));
+        accuracy.setText(prefs.getString("accuracy", ""));
 
-        int idNum = 2;
+        /*int idNum = 2;
         ANRequest req = AndroidNetworking.get("https://api-hellhub-collective.koyeb.app/api/statistics/" + idNum +"/").setPriority(Priority.LOW).build();
         req.getAsJSONObject(new JSONObjectRequestListener() {
             @Override
@@ -116,5 +117,6 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), req.getUrl(), Toast.LENGTH_LONG).show();
             }
         });
+        */
     }
 }
