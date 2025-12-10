@@ -130,7 +130,7 @@ public class ThirdActivity extends AppCompatActivity {
         phrases.add("Super Earth: One nation under debt.");
         phrases.add("Your pals are fighting; Why aren't you?");
         phrases.add("How 'bout a nice cup of LIBER-TEA");
-        phrases.add("He just called his automation friends. Time to call yours");
+        phrases.add("He just called his automaton friends. Time to call yours");
         String phrase = phrases.get(random.nextInt(phrases.size()));
         propaganda.setText(phrase);
     }
