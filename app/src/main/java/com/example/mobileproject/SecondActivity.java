@@ -76,18 +76,18 @@ public class SecondActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("stats", MODE_PRIVATE);
 
-        missionsWon.setText(prefs.getString("wins", ""));
-        missionsPlayed.setText(prefs.getString("plays", ""));
-        bugKills.setText(prefs.getString("bugs", ""));
-        automationKills.setText(prefs.getString("automations", ""));
-        illuminateKills.setText(prefs.getString("illuminates", ""));
-        friendlyKills.setText(prefs.getString("friendly", ""));
-        bulletsFired.setText(prefs.getString("fired", ""));
-        bulletsHit.setText(prefs.getString("hits", ""));
-        deaths.setText(prefs.getString("deaths", ""));
-        revives.setText(prefs.getString("revives",""));
-        missionSuccessRate.setText(prefs.getString("missionSuccessRate", ""));
-        accuracy.setText(prefs.getString("accuracy", ""));
+        missionsWon.setText(prefs.getString("wins", "0"));
+        missionsPlayed.setText(prefs.getString("plays", "0"));
+        bugKills.setText(prefs.getString("bugs", "0"));
+        automationKills.setText(prefs.getString("automations", "0"));
+        illuminateKills.setText(prefs.getString("illuminates", "0"));
+        friendlyKills.setText(prefs.getString("friendly", "0"));
+        bulletsFired.setText(prefs.getString("fired", "0"));
+        bulletsHit.setText(prefs.getString("hits", "0"));
+        deaths.setText(prefs.getString("deaths", "0"));
+        revives.setText(prefs.getString("revives","0"));
+        missionSuccessRate.setText(prefs.getString("missionSuccessRate", "0"));
+        accuracy.setText(prefs.getString("accuracy", "0"));
 
         /*int idNum = 2;
         ANRequest req = AndroidNetworking.get("https://api-hellhub-collective.koyeb.app/api/statistics/" + idNum +"/").setPriority(Priority.LOW).build();
