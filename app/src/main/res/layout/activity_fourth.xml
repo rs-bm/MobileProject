@@ -142,12 +142,14 @@
         android:layout_width="156dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginBottom="5dp"
         android:background="@color/backgroundGrey"
         android:backgroundTint="@color/backgroundGrey"
         android:text="@string/revives"
         android:textAlignment="center"
         android:textAppearance="@style/ChipTextAppearance__Roboto"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 

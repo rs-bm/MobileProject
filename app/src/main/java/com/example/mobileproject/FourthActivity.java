@@ -14,11 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class FourthActivity extends AppCompatActivity {
 
-    EditText typeWins;
-    EditText typePlays;
-    EditText typeBugs;
+    private EditText typeWins;
+    private EditText typePlays;
+    private EditText typeBugs;
     private EditText typeAutomations;
     private EditText typeIlluminates;
     private EditText typeFriendly;
@@ -29,7 +31,6 @@ public class FourthActivity extends AppCompatActivity {
 
     Button SaveButton;
     Button CancelButton;
-
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
 
@@ -43,6 +44,28 @@ public class FourthActivity extends AppCompatActivity {
         @Override
         public void onClick(View v)
         {
+            ArrayList<EditText> fields = new ArrayList<>();
+            fields.add(typeWins);
+            fields.add(typePlays);
+            fields.add(typeBugs);
+            fields.add(typeAutomations);
+            fields.add(typeIlluminates);
+            fields.add(typeFriendly);
+            fields.add(typeFires);
+            fields.add(typeHits);
+            fields.add(typeDeaths);
+            fields.add(typeRevives);
+            for (EditText field : fields)
+            {
+                if (field.getText().toString().trim().isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"All fields must be filled", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+
+
+
             int bulletsFired = Integer.parseInt(typeFires.getText().toString().trim());
             int bulletsHit = Integer.parseInt(typeHits.getText().toString().trim());
             if (bulletsHit > bulletsFired)
@@ -57,8 +80,8 @@ public class FourthActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"wins cannot exceed the total missions played", Toast.LENGTH_SHORT).show();
                 return;
             }
-            int accuracy = (bulletsHit/bulletsFired)*100;
-            int missionSuccessRate = (wins/plays)*100;
+            double accuracy = ((double) bulletsHit/bulletsFired)*100;
+            double missionSuccessRate = ((double) wins/plays)*100;
 
             editor.putString("wins", typeWins.getText().toString());
             editor.putString("plays", typePlays.getText().toString());
