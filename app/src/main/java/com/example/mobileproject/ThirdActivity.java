@@ -49,6 +49,9 @@ public class ThirdActivity extends AppCompatActivity {
         setPropaganda();
     }
 
+    /*
+    Adds planet info from official API to the table
+     */
     private void setTable() {
         table = findViewById(R.id.table);
         ANRequest req = AndroidNetworking.get("https://helldiverstrainingmanual.com/api/v1/war/campaign").setPriority(Priority.LOW).build();
@@ -122,6 +125,9 @@ public class ThirdActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Randomly chooses propaganda phrase to show upon loading the activity
+     */
     public void setPropaganda() {
         TextView propaganda = findViewById(R.id.propaganda);
         Random random = new Random();
