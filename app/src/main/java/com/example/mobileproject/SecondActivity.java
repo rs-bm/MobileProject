@@ -1,7 +1,10 @@
 package com.example.mobileproject;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -32,6 +35,15 @@ public class SecondActivity extends AppCompatActivity {
     TextView friendlyKills;
     TextView missionSuccessRate;
     TextView accuracy;
+    Button updateButton;
+
+    View.OnClickListener updateListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(), FourthActivity.class);
+            startActivity(intent);
+        }
+    };
     FragmentManager fg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,8 @@ public class SecondActivity extends AppCompatActivity {
         revives = findViewById(R.id.revives);
         missionSuccessRate = findViewById(R.id.missionSuccessRate);
         accuracy = findViewById(R.id.accuracy);
+        updateButton = findViewById(R.id.updateButton);
+        updateButton.setOnClickListener(updateListener);
         trans.add(R.id.navFragment, nf, "navFragment");
         trans.commit();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
