@@ -37,12 +37,9 @@ public class SecondActivity extends AppCompatActivity {
     TextView accuracy;
     Button updateButton;
 
-    View.OnClickListener updateListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), FourthActivity.class);
-            startActivity(intent);
-        }
+    View.OnClickListener updateListener = v -> {
+        Intent intent = new Intent(getApplicationContext(), FourthActivity.class);
+        startActivity(intent);
     };
     FragmentManager fg;
     @Override
