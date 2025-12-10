@@ -31,6 +31,7 @@ public class FourthActivity extends AppCompatActivity {
 
     Button SaveButton;
     Button CancelButton;
+    Button ResetButton;
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
 
@@ -103,6 +104,38 @@ public class FourthActivity extends AppCompatActivity {
         }
     };
 
+    View.OnClickListener resetListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v)
+        {
+            editor.putString("wins", "0");
+            editor.putString("plays", "0");
+            editor.putString("bugs", "0");
+            editor.putString("automations", "0");
+            editor.putString("illuminates", "0");
+            editor.putString("friendly", "0");
+            editor.putString("fired", "0");
+            editor.putString("hits", "0");
+            editor.putString("deaths", "0");
+            editor.putString("revives","0");
+            editor.putString("accuracy", "0");
+            editor.putString("missionSuccessRate", "0");
+
+            editor.commit();
+
+            typeWins.setText("0");
+            typePlays.setText("0");
+            typeBugs.setText("0");
+            typeAutomations.setText("0");
+            typeIlluminates.setText("0");
+            typeFriendly.setText("0");
+            typeFires.setText("0");
+            typeHits.setText("0");
+            typeDeaths.setText("0");
+            typeRevives.setText("0");
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +154,7 @@ public class FourthActivity extends AppCompatActivity {
         typeRevives = findViewById(R.id.typeRevives);
         SaveButton = findViewById(R.id.saveButton);
         CancelButton = findViewById(R.id.cancelButton);
+        ResetButton = findViewById(R.id.resetButton);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -130,19 +164,20 @@ public class FourthActivity extends AppCompatActivity {
         prefs = getSharedPreferences("stats", MODE_PRIVATE);
         editor = prefs.edit();
 
-        typeWins.setText(prefs.getString("wins", ""));
-        typePlays.setText(prefs.getString("plays", ""));
-        typeBugs.setText(prefs.getString("bugs", ""));
-        typeAutomations.setText(prefs.getString("automations", ""));
-        typeIlluminates.setText(prefs.getString("illuminates", ""));
-        typeFriendly.setText(prefs.getString("friendly", ""));
-        typeFires.setText(prefs.getString("fired", ""));
-        typeHits.setText(prefs.getString("hits", ""));
-        typeDeaths.setText(prefs.getString("deaths", ""));
-        typeRevives.setText(prefs.getString("revives",""));
+        typeWins.setText(prefs.getString("wins", "0"));
+        typePlays.setText(prefs.getString("plays", "0"));
+        typeBugs.setText(prefs.getString("bugs", "0"));
+        typeAutomations.setText(prefs.getString("automations", "0"));
+        typeIlluminates.setText(prefs.getString("illuminates", "0"));
+        typeFriendly.setText(prefs.getString("friendly", "0"));
+        typeFires.setText(prefs.getString("fired", "0"));
+        typeHits.setText(prefs.getString("hits", "0"));
+        typeDeaths.setText(prefs.getString("deaths", "0"));
+        typeRevives.setText(prefs.getString("revives","0"));
 
         SaveButton.setOnClickListener(saveListener);
         CancelButton.setOnClickListener(cancelListener);
+        ResetButton.setOnClickListener(resetListener);
 
 
     }

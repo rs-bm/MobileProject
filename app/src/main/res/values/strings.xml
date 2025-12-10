@@ -39,4 +39,5 @@
     <string name="cancel">Cancel</string>
     <string name="Save">Save</string>
     <string name="update">Update</string>
+    <string name="reset">Reset</string>
 </resources>
