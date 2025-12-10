@@ -149,7 +149,6 @@
         android:textAlignment="center"
         android:textAppearance="@style/ChipTextAppearance__Roboto"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/cancelButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 

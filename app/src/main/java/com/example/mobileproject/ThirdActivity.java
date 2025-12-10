@@ -36,6 +36,7 @@ public class ThirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AndroidNetworking.initialize(getApplicationContext());
         setContentView(R.layout.activity_third);
+        // Navigation fragment
         fg = getSupportFragmentManager();
         FragmentTransaction trans = fg.beginTransaction();
         NavFragment nf = new NavFragment();
@@ -55,7 +56,6 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray jsonArray) {
                 try {
-
                     Typeface font = ResourcesCompat.getFont(getApplicationContext(), R.font.fs_sinclair_medium);
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject job = (JSONObject) jsonArray.get(i);
